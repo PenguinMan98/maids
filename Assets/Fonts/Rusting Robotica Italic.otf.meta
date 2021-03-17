@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 0f3e549e2a6904e279efee7b159a6e72
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Rusting Robotica
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 142c16923e15c4dea8bdb4a302d3b336, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
