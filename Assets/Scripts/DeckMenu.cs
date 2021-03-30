@@ -39,7 +39,6 @@ public class DeckMenu : MonoBehaviour
         int colPos = 0;
         int colMax = 6;
         foreach(CardMovement thisCard in myMovementDeck.GetMovementDeck()){
-            Debug.Log("Card: " + thisCard);
             switch (thisCard.ToString())
             {
                 case "Forward 2":
