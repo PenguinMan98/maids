@@ -18,6 +18,10 @@ public class DeckMenu : MonoBehaviour
     [SerializeField] CardMovement[] myMovementDiscard;
 
     DeckMovement myMovementDeck;
+    // card size vars
+    int cardWidth = 150;
+    int cardHeight = 210;
+    int cardGap = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +32,7 @@ public class DeckMenu : MonoBehaviour
         Vector3 parentTopLeft = getParentTopLeft();
         Debug.Log("parentTopLeft position: " + parentTopLeft);
 
-        Vector3 cardDefaultPos = parentTopLeft + new Vector3(120, -260, 0);
-
-        // card size vars
-        int cardWidth = 170;
-        int cardHeight = -220;
+        Vector3 cardDefaultPos = parentTopLeft + new Vector3(cardWidth/2, cardHeight/-2,0);
 
         // card ui position vars
         int rowPos = 0;
@@ -64,7 +64,7 @@ public class DeckMenu : MonoBehaviour
                     newCard = Instantiate(cardPrefabM1, cardDefaultPos, Quaternion.identity, deckMenuParent.transform);
                     break;
             }
-            Vector3 cardPos = new Vector3(colPos * cardWidth, rowPos * cardHeight ,0) + cardDefaultPos;
+            Vector3 cardPos = new Vector3(colPos * (cardWidth + cardGap), rowPos * (-cardHeight - cardGap) ,0) + cardDefaultPos;
             if(colPos == colMax -1){
                 rowPos += 1;
                 colPos = 0;
