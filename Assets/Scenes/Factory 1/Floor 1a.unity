@@ -3694,11 +3694,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9013759541074271670, guid: ff523623f7060478f9a74698e20338e7, type: 3}
       propertyPath: wallS
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9013759541074271670, guid: ff523623f7060478f9a74698e20338e7, type: 3}
       propertyPath: myTileType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff523623f7060478f9a74698e20338e7, type: 3}
