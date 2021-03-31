@@ -13,6 +13,9 @@ public class CustomTools : Editor
         {
             Debug.Log("Time to update the walls!");
             //do the thing
+            GameObject current = Selection.activeGameObject;
+            Tile tile = current.GetComponent<Tile>();
+            Debug.Log("I am " + tile.GetGridX() + "," + tile.GetGridY());
         }
     }
 }
