@@ -38,6 +38,27 @@ public class Tile : MonoBehaviour
         
     }
 
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.black;
+        if(wallN){
+            Gizmos.DrawCube(transform.position + new Vector3(0,25,0), new Vector3(50,3,1));
+        }
+        if(wallS){
+            Gizmos.DrawCube(transform.position + new Vector3(0,-25,0), new Vector3(50,3,1));
+        }
+        if(wallE){
+            Gizmos.DrawCube(transform.position + new Vector3(25,0,0), new Vector3(3,50,1));
+        }
+        if(wallW){
+            Gizmos.DrawCube(transform.position + new Vector3(-25,0,0), new Vector3(3,50,1));
+        }
+        if(myTileType == tileType.PlayerStart){
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawSphere(transform.position, 20);
+        }
+    }
+
     // getters/setters
     public int GetGridX(){ return gridX; }
     public int GetGridY(){ return gridY; }
