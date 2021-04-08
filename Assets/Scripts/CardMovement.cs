@@ -6,18 +6,25 @@ using UnityEngine;
 public enum CardMovementType {Forward, Left, Right, Reverse, UTurn};
 
 [Serializable]
-public class CardMovement
+public class CardMovement : Card
 {
     // Editor vars
-    [SerializeField] int value = 1;
-    [SerializeField] CardMovementType type = CardMovementType.Forward;
+
 
     // Private vars
+    int value = 1;
+    CardMovementType type = CardMovementType.Forward;
 
     public CardMovement(CardMovementType _type, int _value){
         setValue(_value);
         setType(_type);
     }
+
+    // methods
+    override public string ToString() {
+        return type + " " + value;
+    }
+
     // Getters/Setters
     public void setValue( int _value ){
         value = _value;
@@ -33,9 +40,5 @@ public class CardMovement
 
     public CardMovementType getType(){
         return type;
-    }
-
-    override public string ToString() {
-        return type + " " + value;
     }
 }

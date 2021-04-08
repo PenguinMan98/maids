@@ -40,21 +40,26 @@ public class Tile : MonoBehaviour
 
     void OnDrawGizmos()
     {
+        int wallDistance = 30;
         Gizmos.color = Color.black;
         if(wallN){
-            Gizmos.DrawCube(transform.position + new Vector3(0,25,0), new Vector3(50,3,1));
+            Gizmos.DrawCube(transform.position + new Vector3(0,wallDistance,0), new Vector3(50,3,1));
         }
         if(wallS){
-            Gizmos.DrawCube(transform.position + new Vector3(0,-25,0), new Vector3(50,3,1));
+            Gizmos.DrawCube(transform.position + new Vector3(0,-wallDistance,0), new Vector3(50,3,1));
         }
         if(wallE){
-            Gizmos.DrawCube(transform.position + new Vector3(25,0,0), new Vector3(3,50,1));
+            Gizmos.DrawCube(transform.position + new Vector3(wallDistance,0,0), new Vector3(3,50,1));
         }
         if(wallW){
-            Gizmos.DrawCube(transform.position + new Vector3(-25,0,0), new Vector3(3,50,1));
+            Gizmos.DrawCube(transform.position + new Vector3(-wallDistance,0,0), new Vector3(3,50,1));
         }
         if(myTileType == tileType.PlayerStart){
             Gizmos.color = Color.yellow;
+            Gizmos.DrawSphere(transform.position, 20);
+        }
+        if(myTileType == tileType.Materials){
+            Gizmos.color = Color.black;
             Gizmos.DrawSphere(transform.position, 20);
         }
     }
