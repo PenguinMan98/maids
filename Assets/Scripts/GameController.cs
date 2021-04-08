@@ -8,13 +8,13 @@ public class GameController : MonoBehaviour
     DeckMovement myMovementDeck;
 
     // editor vars
-    public GameObject cardPrefabM1;
-    public GameObject cardPrefabM2;
-    public GameObject cardPrefabM3;
-    public GameObject cardPrefabMR;
-    public GameObject cardPrefabML;
-    public GameObject cardPrefabMB;
-    public GameObject cardPrefabMU;
+    [SerializeField] GameObject cardPrefabM1;
+    [SerializeField] GameObject cardPrefabM2;
+    [SerializeField] GameObject cardPrefabM3;
+    [SerializeField] GameObject cardPrefabMR;
+    [SerializeField] GameObject cardPrefabML;
+    [SerializeField] GameObject cardPrefabMB;
+    [SerializeField] GameObject cardPrefabMU;
 
 
     private void Awake()
@@ -46,6 +46,7 @@ public class GameController : MonoBehaviour
     }
 
     public GameObject GetCardPrefab(CardMovementType myMovementType, int value){
+        Debug.Log("GetCardPrefab " + myMovementType + " of size " + value);
         if(myMovementType == CardMovementType.Forward && value == 1){
             return cardPrefabM1;
         }else if(myMovementType == CardMovementType.Forward && value == 2){

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeckMenu : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class DeckMenu : MonoBehaviour
     [SerializeField] CardMovement[] myMovementHand;
     [SerializeField] CardMovement[] myMovementDiscard;
 
+    // Private vars
+    int currentSceneIndex;
     DeckMovement myMovementDeck;
 
     // Cached refs
@@ -20,6 +23,11 @@ public class DeckMenu : MonoBehaviour
         gameController = FindObjectOfType<GameController>();
 
         myMovementDeck = new DeckMovement();
+
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if(currentSceneIndex == 1){
+            renderDeck();
+        }
     }
 
     // Update is called once per frame
@@ -49,6 +57,7 @@ public class DeckMenu : MonoBehaviour
         GameObject prefab;
         GameObject newCard;
         foreach(CardMovement thisCard in myMovementDeck.GetMovementDeck()){
+            Debug.Log("card " + thisCard.getType() + " of size " + thisCard.getValue());
             prefab = gameController.GetCardPrefab(thisCard.getType(), thisCard.getValue());
             switch (thisCard.ToString())
             {
