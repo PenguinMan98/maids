@@ -26,7 +26,7 @@ public class DeckMenu : MonoBehaviour
 
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         if(currentSceneIndex == 1){
-            renderDeck();
+            renderDeck(deckMenuParent);
         }
     }
 
@@ -46,7 +46,7 @@ public class DeckMenu : MonoBehaviour
         return new Vector3(-(width/2), (height/2), 0);
     }
 
-    void renderDeck(){
+    void renderDeck(GameObject renderParent){
         Vector3 parentTopLeft = getParentTopLeft();
         Vector3 cardDefaultPos = parentTopLeft + new Vector3(Card.cardWidth/2, Card.cardHeight/-2,0);
 
@@ -59,33 +59,7 @@ public class DeckMenu : MonoBehaviour
         foreach(CardMovement thisCard in myMovementDeck.GetMovementDeck()){
             Debug.Log("card " + thisCard.getType() + " of size " + thisCard.getValue());
             prefab = gameController.GetCardPrefab(thisCard.getType(), thisCard.getValue());
-            switch (thisCard.ToString())
-            {
-                case "Forward 1":
-                    newCard = Instantiate(prefab, cardDefaultPos, Quaternion.identity, deckMenuParent.transform);
-                    break;
-                case "Forward 2":
-                    newCard = Instantiate(prefab, cardDefaultPos, Quaternion.identity, deckMenuParent.transform);
-                    break;
-                case "Forward 3":
-                    newCard = Instantiate(prefab, cardDefaultPos, Quaternion.identity, deckMenuParent.transform);
-                    break;
-                case "Right 1":
-                    newCard = Instantiate(prefab, cardDefaultPos, Quaternion.identity, deckMenuParent.transform);
-                    break;
-                case "Left 1":
-                    newCard = Instantiate(prefab, cardDefaultPos, Quaternion.identity, deckMenuParent.transform);
-                    break;
-                case "Reverse 1":
-                    newCard = Instantiate(prefab, cardDefaultPos, Quaternion.identity, deckMenuParent.transform);
-                    break;
-                case "UTurn 1":
-                    newCard = Instantiate(prefab, cardDefaultPos, Quaternion.identity, deckMenuParent.transform);
-                    break;
-                default:
-                    newCard = Instantiate(prefab, cardDefaultPos, Quaternion.identity, deckMenuParent.transform);
-                    break;
-            }
+            newCard = Instantiate(prefab, cardDefaultPos, Quaternion.identity, deckMenuParent.transform);
             Vector3 cardPos = new Vector3(colPos * (Card.cardWidth + Card.cardGap), rowPos * (-Card.cardHeight - Card.cardGap) ,0) + cardDefaultPos;
             if(colPos == colMax -1){
                 rowPos += 1;

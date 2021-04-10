@@ -79,7 +79,7 @@ public class DeckMovement
         }
     }
 
-    public List<CardMovement> Draw(int numToDraw ){
+    public List<CardMovement> Draw(int numToDraw){
         List<CardMovement> drawnCards = new List<CardMovement>();
         int cardIndex;
         CardMovement drawnCard;

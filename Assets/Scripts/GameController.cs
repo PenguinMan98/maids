@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     // internal vars
-    DeckMovement myMovementDeck;
+    DeckMovement myMovementDeck = new DeckMovement();
 
     // editor vars
     [SerializeField] GameObject cardPrefabM1;
@@ -28,16 +28,6 @@ public class GameController : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
-    }
-
-    void Start()
-    {
-        myMovementDeck = new DeckMovement();
-    }
-
-    void Update()
-    {
-        
     }
 
     // methods
